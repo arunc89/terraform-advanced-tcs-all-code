@@ -18,7 +18,5 @@ resource "aws_instance" "ec2_public" {
     tags ={
         Name = "Nishant-ec2-Public"
     }
-
-  
 }
 
