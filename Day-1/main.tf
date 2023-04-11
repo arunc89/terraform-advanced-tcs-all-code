@@ -5,3 +5,5 @@ provider "aws" {
 }
 
 # write the ec2 instance config 
+
+
