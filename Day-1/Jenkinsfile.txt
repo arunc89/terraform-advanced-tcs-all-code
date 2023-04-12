@@ -1,21 +1,27 @@
-pipeline {
+pipeline{
     agent any
-
+    tools {
+     terraform 'Terraform'
+    }
+    
     stages {
-        stage('Checkout') {
+        stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions :[], userRemoteConfig: [[url: "https://github.com/sfjbssept/terraform-advanced-tcs-all-code/tree/main/Day-1"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/NishantGupta99/terraform-ec2-demo.git']]])
+                
             }
         }
-        stage("terraform init") {
+        
+        stage('Terrafrom init') {
             steps {
-                sh ('terraform init')
+                bat("terraform init")
             }
         }
-        stage("terraform Action") {
+        
+         stage('Terrafrom Action') {
             steps {
-                echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto')
+                echo"terraform action from the parameter is ->  ${action}"
+                bat("terraform ${action} --auto-approve")
             }
         }
     }
