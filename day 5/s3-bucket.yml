@@ -1,0 +1,24 @@
+---
+- name: create s3 bucket
+  hosts: localhost
+  connection: local
+  vars_files:
+    - creds.yml
+  tasks:
+  - name: create a simple s3 bucket
+    amazon.aws.s3_bucket:
+      name: nishant-ansible-buckets3
+      state: present
+      region: us-east-1
+      aws_access_key: "{{aws_access_key}}"
+      aws_secret_key: "{{aws_secret_key}}"
+
+  - name: create folder in the bucket
+    amazon.aws.aws_s3:
+      bucket: nishant-ansible-buckets3
+      object: /myfiles/TCS/documents
+      mode: create
+      aws_access_key: "{{aws_access_key}}"
+      aws_secret_key: "{{aws_secret_key}}"
+
+  
