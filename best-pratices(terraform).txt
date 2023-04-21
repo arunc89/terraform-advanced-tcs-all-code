@@ -1,0 +1,14 @@
+	1. A terraform file should never have credentials/ connection info 
+		a. Using tfvars, using aws cli, aws roles.
+	2. Always maintain project documentation 
+	3. Infrastructure code scanning 
+	4. Resource tagging standards should be always given priority 
+		a. Should be done for created by, created on etc 
+	5. Setup a variable naming convention
+		a. A variable should be named in a manner that it should be unique , identifiable and ,readability should be high.
+		b. Use  comments for marking
+	6. Modules should be used when you are creating a commonly used resource 
+		a. To save time 
+	7. Never share your .tfvars which contains confidential info in a public repo.
+	8. Format the code and validate before planning 
+	9. Validate your inputs 

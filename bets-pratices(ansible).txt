@@ -1,0 +1,10 @@
+	1. Always keep all secrets inside ansible-vault
+		a. Ansible vault allows you to encrypt passwords which is a very important features and helps us secure the secrets 
+		b. -vvvv it increasing verbosity of our secrets from leaking into log files.
+	2. When you have a script you can check before you leap, you can do a dry run with --check and --diff 
+
+	Ansible-playbook -I inventory apache_server/add-apache-server.yml --check --diff --limit host1
+	
+	3. Use a code scanner like Ansible-lint
+		a. A tool like ansible-lint will make sure that the coding standards are being followed and we don’t make a mistake which can later lead to bugs. 
+	Ansible-lint apache-builf.yml
